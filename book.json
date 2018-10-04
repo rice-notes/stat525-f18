@@ -1,0 +1,23 @@
+{
+    "root": "src",
+    "title": "COMP310: Advanced Object Oriented Programming",
+    "description": "Notes from the Fall 2018 offering of COMP310 at Rice University.",
+    "author": "Gabriel Vacaliuc",
+    "plugins": [
+        "katex-plus",
+        "edit-link",
+        "embed-pdf",
+        "uml",
+        "underline"
+    ],
+    "pluginsConfig": {
+        "edit-link": {
+          "base": "https://github.com/rice-notes/comp321-sp18/tree/master/src",
+          "label": "edit"
+        },
+        "uml": {
+          "format": "png",
+          "nailgun": false
+        }
+    }
+}
