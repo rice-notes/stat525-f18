@@ -35,7 +35,8 @@ $$
 * Draw $\theta^*$ depends on $\theta^{s-1}$, hence MCMC
 * $r > 1$ when $p(\theta^* | y) > p(\theta^{s-1} | y)$
     * $\theta^*$ increases posterior density, accept and move towards mode
-* $r < 1$ else:
+
+* $r \le 1$
     * $\theta^*$ decreases posterior density
     * move away from mode with probability $r$ (accept $\theta^*$)
     * stay at current position with probability $1-r$
@@ -52,12 +53,12 @@ $$
         \frac{q(\theta^* | y)J(\theta^* | \theta^{s-1})}
              {q(\theta^{s-1} | y)J(\theta^{s-1} | \theta^{s-1})}$
     3. Set 
-        $$
-        \theta^s = \begin{cases} 
-            \theta^* & \text{with prob } min(r, 1) \\
-            \theta^{s-1} & \text{else}
-        \end{cases}
-        $$
+$$
+\theta^s = \begin{cases} 
+\theta^* & \text{with prob } min(r, 1) \\
+\theta^{s-1} & \text{else}
+\end{cases}
+$$
 
 
 ## MCMC Foundations
@@ -103,3 +104,31 @@ draws of $\theta^*$ are independent of $\theta^{s-1}$.
 Example: $J(\theta^* | \theta^{s-1}) = N(\theta^*; \hat{theta}, \hat{\Sigma})$
 
 ### Gibbs Sampler
+
+## Tuning Acceptance Rate
+
+How often should we accept our proposals?  Suppose $\theta = (\theta_1, \ldots,
+\theta_d)$ is $d$-dimensional and our posterior is approximately normal.  
+
+Using the random walk proposal, $N(\theta^*; \theta^{s-1}, c^2 * \hat{\Sigma})$,
+the most "efficient" choice is $c \approx \frac{2.4}{\sqrt{d}}$.
+
+More generally, we'd like to tune $c$ and $\hat{\Sigma}$ such that
+$$
+r \approx 
+\begin{cases}
+    0.44 & d = 1 \\
+    0.23 & d \rightarrow \infty
+\end{cases}
+$$
+ 
+### Adaptive MH
+
+1. Simulate with fixed algorithm such as Gibbs Sampler or RW-MH
+2. After $S^*$, estimate $\hat{\Sigma} = \hat{\text{cov}}(\theta, y)$
+3. Scale $\hat{\Sigma}$ to $c\hat{\Sigma}$ to tune acceptance rate
+4. Run MCMC using $c\hat{\Sigma}$, but **discard simulations** $s = 1, \ldots, S^*$
+
+## Diagnostics
+
+Need to run the chain "long enough".

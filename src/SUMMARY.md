@@ -5,3 +5,4 @@
 * [Simulation and Sampling](./simulation/README.md)
     * [Gibbs Sampler](./simulation/gibbs-sampler.md)
     * [Metropolis Hastings](./simulation/metropolis-hastings.md)
+    * [Diagnostics](./simulation/diagnostics.md)

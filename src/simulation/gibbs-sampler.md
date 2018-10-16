@@ -1,16 +1,16 @@
 # Gibbs Sampler
 
-* $$\theta \sim p(\theta | y)$$, $$\theta = (\theta_1, \ldots, \theta_B)$$
-* $$p(\theta_b | y, \theta_{-b})$$ (conditional less $$\theta_b$$)
+* $\theta \sim p(\theta | y)$, $\theta = (\theta_1, \ldots, \theta_B)$
+* $p(\theta_b | y, \theta_{-b})$ (conditional less $\theta_b$)
 
-Want to sample from the posterior distribution, $$p(\theta | y)$$, however the
+Want to sample from the posterior distribution, $p(\theta | y)$, however the
 distribution is unknown.  
 
-1. Initialize $$\theta^0 = (\theta^0_1, \ldots, \theta^0_B)$$
-2. For $$s = 1, \ldots, S$$
-    1. $$\theta^s_1 \sim p(\theta_1 | \theta_2=\theta_2^{s-1}, \ldots, \theta_B=\theta_B^{s-1})$$
-    1. $$\theta^s_2 \sim p(\theta_2 | \theta_1=\theta_1^{s-1}, \ldots, \theta_B=\theta_B^{s-1})$$
-    1. $$\theta^s_B \sim p(\theta_B | \theta_1=\theta_1^{s-1}, \ldots, \theta_{B-1}=\theta_{B-1}^{s-1})$$
+1. Initialize $\theta^0 = (\theta^0_1, \ldots, \theta^0_B)$
+2. For $s = 1, \ldots, S$
+    1. $\theta^s_1 \sim p(\theta_1 | \theta_2=\theta_2^{s-1}, \ldots, \theta_B=\theta_B^{s-1})$
+    1. $\theta^s_2 \sim p(\theta_2 | \theta_1=\theta_1^{s-1}, \ldots, \theta_B=\theta_B^{s-1})$
+    1. $\theta^s_B \sim p(\theta_B | \theta_1=\theta_1^{s-1}, \ldots, \theta_{B-1}=\theta_{B-1}^{s-1})$
 
 ## Issues
 
@@ -20,12 +20,12 @@ normal distribution,
 
 ## Example: British Coal Mining Disasters
 
-Let $$y_t$$ be the number of disasters in year $$t$$, $$t \in [1851, 1962]$$.  
+Let $y_t$ be the number of disasters in year $t$, $t \in [1851, 1962]$.  
 
 We have count valued data, so we're going to use the Poisson distribution to
 model this, but we're interested in determining if there was a change in
 distribution at some point.  We'd like to measure the likelihood of a changepoint
-(the tick that the distributions changed at) at an unknown $$k$$:  
+(the tick that the distributions changed at) at an unknown $k$:  
 $$
 [ y_t | \lambda_t, k ] \sim Poisson(\lambda_t)
 $$
@@ -52,7 +52,7 @@ $$
 \end{aligned}
 $$
 
-And the full conditionals of $$\lambda_1, \lambda_2$$ as
+And the full conditionals of $\lambda_1, \lambda_2$ as
 $$
 \begin{aligned}
     p(\lambda_1 | y, \lambda_2, k) &\propto p(\lambda_1) p(y | \lambda_1, \lambda_2, k) \\
@@ -68,8 +68,8 @@ $$
 \end{aligned}
 $$
 
-What we're truly after, is the likelihood that $$k = j$$ for some $$j = 1,
-\ldots, n$$.  
+What we're truly after, is the likelihood that $k = j$ for some $j = 1,
+\ldots, n$.  
 
 $$
 \begin{aligned}
@@ -97,8 +97,8 @@ $$
 $$
 
 Note that we break up the marginal distribution into two components, one which
-depends on $$j$$ and one that does not.  This allows us to define the posterior
-distribution of $$k = j$$ solely based on $$g(j, y, \lambda_1, \lambda_2)$$
+depends on $j$ and one that does not.  This allows us to define the posterior
+distribution of $k = j$ solely based on $g(j, y, \lambda_1, \lambda_2)$
 
 $$
 p(k = j | y, \lambda_1, \lambda_2) = 
