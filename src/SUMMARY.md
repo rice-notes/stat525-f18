@@ -10,4 +10,5 @@
 * [Heirarchical Models](./heirarchical-models/README.md)
     * [Example: Heart Transplant Data](./heirarchical-models/heart-transplant-example.md)
     * [Example: 8 Schools Data](./heirarchical-models/eight-schools-example.md)
+    * [Comments](./heirarchical-models/comments.md)
 * [Multiple Comparisons](./multiple-comparisons/README.md)
