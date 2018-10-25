@@ -24,3 +24,17 @@ Consequences:
 * lose power
 * wider confidence intervals
 * as $M$ and $J$ increase, your estimates become more conservative
+
+#### Key Points
+
+* MC adjustments __widen__ intervals but keep __means fixed__
+* partial pooling (heir. models, mixed models) __shift means__ toward each
+  other and __can shrink__ intervals
+
+#### Comments
+
+* type "S" (sign) errors: WLOG, estimate $\theta_j > 0$ when $\theta_j < 0$
+* type "M" (magnitude) errors: WLOG, estimate $|\theta_j|$ small when
+  $|\theta_j|$ large
+
+shrinkage of heirarchical models help with both of these errors.
