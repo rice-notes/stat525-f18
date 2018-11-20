@@ -12,3 +12,7 @@
     * [Example: 8 Schools Data](./heirarchical-models/eight-schools-example.md)
     * [Comments](./heirarchical-models/comments.md)
 * [Multiple Comparisons](./multiple-comparisons/README.md)
+* [Comparisons](./comparisons/README.md)
+    * [Bayes Factors](./comparisons/bayes-factors.md)
+* [Regression Models](./regression-models/README.md)
+    * [Generalized Linear Models](./regression-models/glm.md)
