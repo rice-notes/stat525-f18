@@ -16,3 +16,4 @@
     * [Bayes Factors](./comparisons/bayes-factors.md)
 * [Regression Models](./regression-models/README.md)
     * [Generalized Linear Models](./regression-models/glm.md)
+* [Bayesian Time Series](./bayesian-time-series.md)
